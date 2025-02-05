@@ -8,7 +8,7 @@ export const Partners = () => {
         <div className="flex flex-wrap justify-center items-center gap-12">
           <div className="text-center">
             <img 
-              src="/placeholder.svg" 
+              src="/lovable-uploads/486305cf-9db2-43b2-9795-cbd833c489dd.png" 
               alt="EdisonOS Logo" 
               className="h-16 mx-auto mb-4 opacity-80 hover:opacity-100 transition-opacity"
             />
