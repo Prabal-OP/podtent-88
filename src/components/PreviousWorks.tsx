@@ -10,7 +10,7 @@ export const PreviousWorks = () => {
     },
     {
       id: 2,
-      logo: "/placeholder.svg",
+      logo: "/lovable-uploads/b71c75f0-bd49-4322-bf6b-5e2ae1660f81.png",
       company: "Sensibull",
       description: "One Trading Mistake with Sensibull - Where we ask people about their single biggest trading mistake and the lessons learnt from it.",
     },
