@@ -4,8 +4,15 @@ export const PreviousWorks = () => {
   const works = [
     {
       id: 1,
+      logo: "/lovable-uploads/486305cf-9db2-43b2-9795-cbd833c489dd.png",
+      company: "Edison OS",
+      description: "Produced a monthly tech podcast series featuring industry leaders, reaching over 50,000 monthly listeners. Managed end-to-end production including guest coordination and content strategy.",
+    },
+    {
+      id: 2,
       logo: "/placeholder.svg",
-      description: "Add your description here (3-4 lines)",
+      company: "Sensibull",
+      description: "One Trading Mistake with Sensibull - Where we ask people about their single biggest trading mistake and the lessons learnt from it.",
     },
   ];
 
@@ -19,11 +26,12 @@ export const PreviousWorks = () => {
               <CardHeader className="flex items-center justify-center p-6">
                 <img
                   src={work.logo}
-                  alt="Company Logo"
+                  alt={`${work.company} Logo`}
                   className="h-24 w-auto object-contain"
                 />
               </CardHeader>
               <CardContent className="text-center p-6">
+                <h3 className="text-xl font-semibold mb-4">{work.company}</h3>
                 <p className="text-gray-600 leading-relaxed">
                   {work.description}
                 </p>
