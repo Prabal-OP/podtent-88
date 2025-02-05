@@ -51,6 +51,14 @@ export const ContactForm = () => {
     <section id="contact" className="py-20 bg-white">
       <div className="container px-4 mx-auto max-w-2xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Start Your Podcast Journey</h2>
+        <div className="mb-8 text-center">
+          <p className="text-gray-600">
+            <a href="mailto:djagmohan69@gmail.com" className="text-primary hover:underline">djagmohan69@gmail.com</a>
+          </p>
+          <p className="text-gray-600 mt-2">
+            <a href="tel:+919986565675" className="text-primary hover:underline">+91 99865 65675</a>
+          </p>
+        </div>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
             <div>

@@ -18,7 +18,7 @@ export const Partners = () => {
               200+ Episodes Produced
             </p>
             <p className="text-gray-500 mt-2">
-              Helping brands share their stories
+              Interviews with leaders from across the globe as they share their journeys, challenges, and strategies for success
             </p>
           </div>
         </div>

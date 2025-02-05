@@ -14,7 +14,7 @@ export const Hero = () => {
         <Button 
           size="lg"
           className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg animate-fadeIn"
-          onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => window.open("https://cal.com/createwithjag/30min?date=2025-02-05&month=2025-02", "_blank")}
         >
           Start Your Podcast Journey
         </Button>
