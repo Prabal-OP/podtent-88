@@ -11,8 +11,16 @@ export const Footer = () => {
           </div>
           <div>
             <h3 className="text-xl font-bold mb-4">Contact</h3>
-            <p className="text-gray-400">Email: hello@podcastpro.com</p>
-            <p className="text-gray-400">Phone: (555) 123-4567</p>
+            <p className="text-gray-400">
+              <a href="mailto:djagmohan69@gmail.com" className="hover:text-white">
+                Email: djagmohan69@gmail.com
+              </a>
+            </p>
+            <p className="text-gray-400">
+              <a href="tel:+919986565675" className="hover:text-white">
+                Phone: +91 99865 65675
+              </a>
+            </p>
           </div>
           <div>
             <h3 className="text-xl font-bold mb-4">Services</h3>

@@ -5,9 +5,9 @@ export const Story = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <img 
-              src="/placeholder.svg" 
-              alt="Studio Setup" 
-              className="rounded-lg shadow-xl"
+              src="/lovable-uploads/efd91d95-d1a6-47e6-b841-0b9fa7e7369f.png" 
+              alt="Jagmohan" 
+              className="rounded-lg shadow-xl w-full max-w-md mx-auto"
             />
           </div>
           <div>
