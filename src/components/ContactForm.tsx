@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useToast } from "@/components/ui/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 export const ContactForm = () => {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -9,7 +12,9 @@ export const ContactForm = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
@@ -17,18 +22,55 @@ export const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Add your form submission logic here
-    setIsSubmitting(false);
+
+    try {
+      const { error } = await supabase.from("contacts").insert([
+        {
+          name: formData.name,
+          email: formData.email,
+          company_name: formData.company,
+          message: formData.message,
+        },
+      ]);
+
+      if (error) throw error;
+
+      toast({
+        title: "Message sent successfully!",
+        description: "We'll get back to you soon.",
+      });
+
+      // Clear form
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        message: "",
+      });
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Error sending message",
+        description: "Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="container px-4 mx-auto max-w-2xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Start Your Podcast Journey</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+          Start Your Podcast Journey
+        </h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Name
               </label>
               <input
@@ -42,7 +84,10 @@ export const ContactForm = () => {
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Email
               </label>
               <input
@@ -57,7 +102,10 @@ export const ContactForm = () => {
             </div>
           </div>
           <div>
-            <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="company"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Company Name (Optional)
             </label>
             <input
@@ -70,7 +118,10 @@ export const ContactForm = () => {
             />
           </div>
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="message"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Message
             </label>
             <textarea
